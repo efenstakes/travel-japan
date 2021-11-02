@@ -66,9 +66,9 @@ struct DestinationDetailsPageView: View {
                         
                         Image(systemName: "arrow.up.backward.and.arrow.down.forward")
                             .resizable()
-                            .frame(width: 20, height: 20, alignment: .center)
+                            .frame(width: 16, height: 16, alignment: .center)
                             .padding()
-                            .background(Color.white.opacity(0.8))
+                            .background(Color.white.opacity(0.6))
                             .clipShape(Circle())
                             .padding()
                         
