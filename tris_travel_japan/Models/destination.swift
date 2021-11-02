@@ -19,15 +19,15 @@ struct Destination: Identifiable {
 
 
 var destinations: Array<Destination> = [
-
-    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "1"),
-    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "2"),
-    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "3"),
+    
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "4"),
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "5"),
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "6"),
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "7"),
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "8"),
     Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "9"),
+    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "1"),
+    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "2"),
+    Destination(name: "Mount Fuji", country: "Japan", city: "Fujinomiya", image: "3"),
 
 ]
