@@ -108,10 +108,16 @@ struct ChoicePicker: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 5) {
             
             Text(choice)
-                .font(.body)
+                .font(
+                    .system(
+                        size: 18,
+                        weight: isSelected ? .semibold : .regular,
+                        design: .rounded
+                    )
+                )
                 .foregroundColor( isSelected ? .orange : .gray )
                 .animation(.easeInOut)
             
@@ -148,13 +154,13 @@ struct DestinationCard: View {
                 .frame(maxHeight: .infinity)
             
             // content
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 4) {
                 
                 Spacer()
                 
                 Text(destination.name)
-                    .font(.body)
-                    .bold()
+                    .font(.title2)
+                    .fontWeight(.heavy)
                 
                 
                 Text("\(destination.city), \(destination.country)")
@@ -172,6 +178,7 @@ struct DestinationCard: View {
         .frame(width: 240, height: 360, alignment: .leading)
         .cornerRadius(28)
         .padding(.leading)
+        .animation(.spring())
         
     }
 }
