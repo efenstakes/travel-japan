@@ -11,13 +11,16 @@ struct ContentView: View {
     
     let choices = [ "Popular", "Rating", "Recent" ]
     @State var selectedChoice = "Popular"
+    @State var selectedFood: UUID = foods[0].id
     
     
     var body: some View {
         NavigationView {
             
-            VStack(alignment: .leading, spacing: 24) {
-                
+//             VStack(alignment: .leading, spacing: 0) {
+            ScrollView(.vertical, showsIndicators: false) {
+                 
+             
                 // pickers
                 HStack(alignment: .top, spacing: 32) {
                     ForEach(choices, id: \.self) { choice in
@@ -41,6 +44,31 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding(.bottom)
+                
+                
+                // foods
+                Text("Japanese Foods")
+                    .font(.title)
+                    .bold()
+                    .padding([.leading, .top])
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(foods) { food in
+                            FoodChoice(
+                                food: food,
+                                isSelected: food.id == selectedFood
+                            )
+                                .onTapGesture {
+                                    selectedFood = food.id
+                                }
+                        }
+                    }
+                    .padding(.bottom, 40)
+                }
+                .padding(.bottom)
                 
                 
             }
@@ -136,6 +164,51 @@ struct DestinationCard: View {
         
     }
 }
+
+
+struct FoodChoice: View {
+    let food: Food
+    let isSelected: Bool
+    
+    var colors: [Color] = [ .red, .orange, .black, .blue ]
+    
+    var body: some View {
+        
+        VStack(alignment: .center, spacing: 12) {
+            
+            // image
+            Image(food.image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40, alignment: .center)
+                .padding(8)
+                .background(
+                    colors.randomElement().opacity(0.6)
+                )
+                .clipShape(Circle())
+            
+            Text(food.name)
+                .font(.caption)
+                .bold()
+            
+        }
+        .frame(width: 80, height: 120, alignment: .center)
+        .clipped()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(
+            color: .gray,
+            radius: isSelected ? 10 : 0,
+            x: 0,
+            y: isSelected ? 10 : 0
+        )
+        .animation(.spring())
+        .padding(.leading)
+        
+        
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
