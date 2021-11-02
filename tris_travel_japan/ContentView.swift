@@ -30,13 +30,20 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Spacer()
+                // destinations
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(destinations) { destination in
+                            DestinationCard(destination: destination)
+                        }
+                    }
+                }
                 
                 
             }
-            .padding()
             .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(
                 leading:
@@ -44,11 +51,11 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.black.opacity(0.7))
-                    .padding(.top, 56),
+                    .padding(.top, 88),
                 trailing:
                     Image(systemName: "magnifyingglass")
                         .frame(width: 12, height: 12, alignment: .center)
-                        .padding(.top, 56)
+                        .padding(.top, 88)
             )
             
         }
@@ -81,6 +88,51 @@ struct ChoicePicker: View {
                 
             
         }
+        
+    }
+}
+
+struct DestinationCard: View {
+    var destination: Destination
+    
+    var body: some View {
+        
+        ZStack(alignment: .leading) {
+            
+            
+            // Image
+            Image(destination.image)
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+            
+            // content
+            VStack(alignment: .leading, spacing: 8) {
+                
+                Spacer()
+                
+                Text(destination.name)
+                    .font(.body)
+                    .bold()
+                
+                
+                Text("\(destination.city), \(destination.country)")
+                    .font(.body)
+                    .bold()
+                
+            }
+            .padding()
+            .frame(width: 240, alignment: .leading)
+            .foregroundColor(.white)
+            
+            
+        }
+        .clipped()
+        .frame(width: 240, height: 360, alignment: .leading)
+        .cornerRadius(28)
+        .padding(.leading)
         
     }
 }
