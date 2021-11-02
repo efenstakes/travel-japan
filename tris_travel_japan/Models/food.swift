@@ -8,7 +8,8 @@
 import Foundation
 
 
-struct Food {
+struct Food: Identifiable {
+    var id: UUID = UUID()
     var category: FoodCategory = .pizza
     var image: String
     var name: String
