@@ -20,7 +20,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             
-//             VStack(alignment: .leading, spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
                  
              
@@ -39,11 +38,18 @@ struct ContentView: View {
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
+                
                 // destinations
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
                         ForEach(destinations) { destination in
-                            DestinationCard(destination: destination)
+                            
+                            NavigationLink(
+                                destination: DestinationDetailsPageView(destination: destination)
+                            ) {
+                                DestinationCard(destination: destination)
+                            }
+                            
                         }
                     }
                 }
@@ -85,10 +91,10 @@ struct ContentView: View {
                     .foregroundColor(.black.opacity(0.7))
                     .padding(.top, 88),
                 trailing:
-                    Image(systemName: "magnifyingglass")
-                        .frame(width: 12, height: 12, alignment: .center)
-                        .padding(.top, 88)
-                        .foregroundColor(.gray)
+                        Image(systemName: "magnifyingglass")
+                            .frame(width: 12, height: 12, alignment: .center)
+                            .padding(.top, 88)
+                            .foregroundColor(.gray)
             )
             
         }
