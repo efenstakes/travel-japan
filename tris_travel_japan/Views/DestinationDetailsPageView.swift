@@ -51,15 +51,28 @@ struct DestinationDetailsPageView: View {
                 HStack {
                     
                     
-                    Image(destination.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: geo.size.width*0.6,
-                            height: 360,
-                            alignment: .center
-                        )
-                        .cornerRadius(24)
+                    ZStack(alignment: .topLeading) {
+                        
+                        Image(destination.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(
+                                width: geo.size.width*0.6,
+                                height: 360,
+                                alignment: .center
+                            )
+                            .cornerRadius(24)
+                        
+                        
+                        Image(systemName: "arrow.up.backward.and.arrow.down.forward")
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .center)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .clipShape(Circle())
+                            .padding()
+                        
+                    }
                     
                     VStack(alignment: .leading) {
                         
@@ -92,7 +105,7 @@ struct DestinationDetailsPageView: View {
                         
                         VStack(alignment: .leading, spacing: 4) {
                             
-                            Image(systemName: "location.fill")
+                            Image(systemName: "arrow.triangle.swap")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 16, height: 16, alignment: .center)
