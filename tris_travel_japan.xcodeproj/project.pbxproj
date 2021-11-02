@@ -16,6 +16,7 @@
 		CE9D9C5227313175008539D5 /* tris_travel_japanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D9C5127313175008539D5 /* tris_travel_japanUITestsLaunchTests.swift */; };
 		CE9D9C6027314046008539D5 /* food.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D9C5F27314046008539D5 /* food.swift */; };
 		CE9D9C62273141B7008539D5 /* destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D9C61273141B7008539D5 /* destination.swift */; };
+		CE9D9C6527315BB0008539D5 /* DestinationDetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D9C6427315BB0008539D5 /* DestinationDetailsPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		CE9D9C5127313175008539D5 /* tris_travel_japanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tris_travel_japanUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE9D9C5F27314046008539D5 /* food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = food.swift; sourceTree = "<group>"; };
 		CE9D9C61273141B7008539D5 /* destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = destination.swift; sourceTree = "<group>"; };
+		CE9D9C6427315BB0008539D5 /* DestinationDetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		CE9D9C3327313170008539D5 /* tris_travel_japan */ = {
 			isa = PBXGroup;
 			children = (
+				CE9D9C6327315B93008539D5 /* Views */,
 				CE9D9C5E27314030008539D5 /* Models */,
 				CE9D9C3427313170008539D5 /* tris_travel_japanApp.swift */,
 				CE9D9C3627313170008539D5 /* ContentView.swift */,
@@ -139,6 +142,14 @@
 				CE9D9C61273141B7008539D5 /* destination.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE9D9C6327315B93008539D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE9D9C6427315BB0008539D5 /* DestinationDetailsPageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9D9C6527315BB0008539D5 /* DestinationDetailsPageView.swift in Sources */,
 				CE9D9C3727313170008539D5 /* ContentView.swift in Sources */,
 				CE9D9C3527313170008539D5 /* tris_travel_japanApp.swift in Sources */,
 				CE9D9C62273141B7008539D5 /* destination.swift in Sources */,
