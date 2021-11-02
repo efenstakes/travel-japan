@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    let choices = [ "Popular", "Rating", "Recent" ]
     @State var selectedChoice = "Popular"
     @State var selectedFood: UUID = foods[0].id
+    
+    var colors: [Color] = [ .red, .orange, .black, .blue ]
+    
+    let choices = [ "Popular", "Rating", "Recent" ]
+    
     
     
     var body: some View {
@@ -49,7 +52,7 @@ struct ContentView: View {
                 
                 // foods
                 Text("Japanese Foods")
-                    .font(.title)
+                    .font(.title2)
                     .bold()
                     .padding([.leading, .top])
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -59,11 +62,12 @@ struct ContentView: View {
                         ForEach(foods) { food in
                             FoodChoice(
                                 food: food,
-                                isSelected: food.id == selectedFood
+                                isSelected: food.id == selectedFood,
+                                color: colors.randomElement()!
                             )
-                                .onTapGesture {
-                                    selectedFood = food.id
-                                }
+                            .onTapGesture {
+                                selectedFood = food.id
+                            }
                         }
                     }
                     .padding(.bottom, 40)
@@ -84,6 +88,7 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                         .frame(width: 12, height: 12, alignment: .center)
                         .padding(.top, 88)
+                        .foregroundColor(.gray)
             )
             
         }
@@ -105,7 +110,7 @@ struct ChoicePicker: View {
                 .animation(.easeInOut)
             
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.red)
+                .fill(Color.orange)
                 .frame(
                     width: isSelected ? 20 : 0,
                     height: isSelected ? 6 : 0,
@@ -169,8 +174,7 @@ struct DestinationCard: View {
 struct FoodChoice: View {
     let food: Food
     let isSelected: Bool
-    
-    var colors: [Color] = [ .red, .orange, .black, .blue ]
+    let color: Color
     
     var body: some View {
         
@@ -183,7 +187,7 @@ struct FoodChoice: View {
                 .frame(width: 40, height: 40, alignment: .center)
                 .padding(8)
                 .background(
-                    colors.randomElement().opacity(0.6)
+                    color.opacity(0.6)
                 )
                 .clipShape(Circle())
             
