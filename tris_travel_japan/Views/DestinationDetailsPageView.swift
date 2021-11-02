@@ -176,9 +176,9 @@ struct DestinationDetailsPageView: View {
                     Spacer()
                     
                     VStack(spacing: 8) {
-                        Image(systemName: "house.fill")
+                        Image(systemName: "house")
                             .resizable()
-                            .frame(width: 20, height: 20, alignment: .center)
+                            .frame(width: 28, height: 24, alignment: .center)
                         
                         Text("Home")
                             .font(.caption)
